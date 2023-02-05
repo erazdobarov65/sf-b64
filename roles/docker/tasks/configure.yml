@@ -1,0 +1,17 @@
+---
+- name: add user docker in docker group
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ item.groups }}"
+    append: yes
+  with_items:
+    - { name: 'docker', groups: 'docker' }
+- name: Create the /etc/docker directory
+  file:
+    path: '/etc/docker'
+    state: 'directory'
+    mode: '0700'
+
+
+
+
