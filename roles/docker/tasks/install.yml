@@ -1,0 +1,8 @@
+---
+
+- name: 'Install docker'
+  apt:
+    name:
+      - 'docker-ce'
+      - 'docker-ce-cli'
+    state: 'latest'

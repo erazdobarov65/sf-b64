@@ -1,0 +1,12 @@
+#customhost
+[db]
+localhost
+
+[docker]
+localhost
+
+[db:vars]
+ansible_connection=local
+
+[docker:vars]
+ansible_connection=local
