@@ -6,7 +6,7 @@
 
   vars:
     source_key: id_rsa.pub
-    dest_key: /home/user1/.ssh/id_rsa.pub
+    dest_key: /home/user1/.ssh/
 
   tasks:
   - name: Create user1
