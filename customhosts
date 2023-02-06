@@ -10,3 +10,6 @@ ansible_connection=local
 
 [docker:vars]
 ansible_connection=local
+
+[postfix]
+localhost

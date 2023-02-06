@@ -1,0 +1,24 @@
+---
+- name: Install and remove Postfix
+  hosts: postfix
+  become: yes
+  gather_facts: yes
+
+  tasks:
+  - name: Update package cache
+    apt:
+      update_cache: yes
+    tags: init_postfix
+
+  - name: Install Postfix
+    apt:
+      name: postfix
+      state: present
+    tags: init_postfix
+
+  - name: Remove Postfix
+    apt:
+      name: postfix
+      state: absent
+    tags: drop
+
