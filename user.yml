@@ -1,0 +1,32 @@
+---
+- hosts: vm1
+  remote_user: evgeny
+  become: yes
+  gather_facts: yes
+
+  vars:
+    source_key: id_rsa.pub
+    dest_key: /home/user1/.ssh/id_rsa.pub
+
+  tasks:
+  - name: Create user1
+    user:
+      name: user1
+      state: present
+      create_home: true
+      home: "/home/user1"
+
+  - name: Ensure .ssh directory exists.
+    file: 
+      dest: "{{ dest_key }}"
+      mode: 0700 
+      owner: user1
+      state: directory
+
+  - name: Install ssh key
+    copy: 
+      src: "{{ source_key }}" 
+      dest: "{{ dest_key }}"
+      mode: 0600
+      owner: user1
+
